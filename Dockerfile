@@ -28,7 +28,7 @@ RUN \
   dpkg -i packages-microsoft-prod.deb && \
   apt-get update && \
   apt-get install -y dotnet-runtime-3.1 && \
-  curl -s https://api.github.com/repos/lucent-sea/Remotely/releases/latest | grep "Remotely_Server_Linux-x64.zip" | cut -d : -f 2,3 | tr -d \" | wget -iq - && \
+  curl -s https://api.github.com/repos/lucent-sea/Remotely/releases/latest | grep "Remotely_Server_Linux-x64.zip" | cut -d : -f 2,3 | tr -d \" | wget -qi - && \
   unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
   rm Remotely_Server_Linux-x64.zip && \
   setfacl -R -m u:www-data:rwx /var/www/remotely && \
