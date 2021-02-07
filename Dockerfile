@@ -28,7 +28,7 @@ RUN \
   dpkg -i packages-microsoft-prod.deb && \
   apt-get update && \
   apt-get install -y dotnet-runtime-3.1 && \
-  wget -q https://github.com/lucent-sea/Remotely/releases/download/v2020.10.02.1757/Remotely_Server_Linux-x64.zip && \
+  wget -q https://github.com/lucent-sea/Remotely/releases/download/v2021.01.22.0533/Remotely_Server_Linux-x64.zip && \
   unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
   rm Remotely_Server_Linux-x64.zip && \
   setfacl -R -m u:www-data:rwx /var/www/remotely && \
@@ -39,7 +39,7 @@ EXPOSE 5000
 
 # fix port bindings and set config environment
 ENV ASPNETCORE_ENVIRONMENT="Production"
-ENV ASPNETCORE_URLS="http://*:5000"
+ENV ASPNETCORE_URLS="http://*:80"
 
 WORKDIR /var/www/remotely
 CMD ["/usr/bin/dotnet", "Remotely_Server.dll"]
